@@ -8,4 +8,6 @@ https://www.cnblogs.com/oasisyang/p/15355667.html
 
 ## Lab1
 
-https://www.cnblogs.com/oasisyang/p/15362359.html
+[part A]https://www.cnblogs.com/oasisyang/p/15362359.html
+
+[part B]https://www.cnblogs.com/oasisyang/p/15365482.html
