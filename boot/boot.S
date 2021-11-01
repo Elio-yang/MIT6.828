@@ -12,28 +12,20 @@
 .globl start
 start:
   .code16                     # Assemble for 16-bit mode
-  cli                         # Disable interrupts ;this should be put at 0x7c00
-  cld                         # String operations increment #DF=0
+  cli                         # Disable interrupts
+  cld                         # String operations increment
 
   # Set up the important data segment registers (DS, ES, SS).
   xorw    %ax,%ax             # Segment number zero
   movw    %ax,%ds             # -> Data Segment
   movw    %ax,%es             # -> Extra Segment
   movw    %ax,%ss             # -> Stack Segment
-			      # all set to zero
 
   # Enable A20:
   #   For backwards compatibility with the earliest PCs, physical
   #   address line 20 is tied low, so that addresses higher than
   #   1MB wrap around to zero by default.  This code undoes this.
-  #   A20 is the 21st physical address line which is common closed
-  #   because in early 8086 processor when address reached 0xfffff
-  #   +1 will get 0. But in 80286 there were 24 physical address line
-  #   to make earlier codes runable A20 is conventionaly closed.
-  #   So you have open this line by your own.
-  #   That what codes below have done.
 seta20.1:
-				  #inb : read a byte from given port here 64h
   inb     $0x64,%al               # Wait for not busy
   testb   $0x2,%al
   jnz     seta20.1

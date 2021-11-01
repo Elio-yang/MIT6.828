@@ -67,7 +67,7 @@ entry:
 	mov	$relocated, %eax
 	jmp	*%eax
 relocated:
-	# where the stack is set.
+
 	# Clear the frame pointer register (EBP)
 	# so that once we get into debugging C code,
 	# stack backtraces will be terminated properly.
