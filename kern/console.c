@@ -192,6 +192,11 @@ cga_putc(int c)
 	}
 
 	// What is the purpose of this?
+	// Answer: the screen has a size of 25*80
+	// when beyond this copy line:2-25 to the 
+	// origin position 1-24 and then fill line 25
+	// with space.
+	// Mention the macros
 	if (crt_pos >= CRT_SIZE) {
 		int i;
 

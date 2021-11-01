@@ -99,10 +99,17 @@ void
 waitdisk(void)
 {
 	// wait for disk reaady
+	//bit7--->controller free
+	//bit6--->boot ready
 	while ((inb(0x1F7) & 0xC0) != 0x40)
 		/* do nothing */;
 }
 
+//read a sector from disk
+//details can be neglect 
+//thoses ports are convention
+//outb(port,data)     ---> out a byte to port
+//insl(port,dest,cnt) ---> read cnt data from port to dest
 void
 readsect(void *dst, uint32_t offset)
 {
