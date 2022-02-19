@@ -63,14 +63,8 @@ void	page_decref(struct PageInfo *pp);
 
 void	tlb_invalidate(pde_t *pgdir, void *va);
 
-
 int	user_mem_check(struct Env *env, const void *va, size_t len, int perm);
 void	user_mem_assert(struct Env *env, const void *va, size_t len, int perm);
-
-
-// get the index of pp in pages array.
-// the calc between pointers is ptr_diff
-// and left-shift by 12 get a physaddr. 
 
 static inline physaddr_t
 page2pa(struct PageInfo *pp)

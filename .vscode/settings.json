@@ -1,4 +1,0 @@
-{
-    "makefile.extensionOutputFolder": "./.vscode",
-    "C_Cpp.default.includePath": ["./inc","./kern"]
-}
